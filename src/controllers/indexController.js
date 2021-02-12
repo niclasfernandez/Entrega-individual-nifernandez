@@ -14,5 +14,11 @@ module.exports = {
         .then(function(notas){
             res.redirect('/')
         })
+    },
+    delete: function(req,res) {
+        db.Notas.destroy({ where: { id: req.query.id }})
+        .then(function(notas){
+            res.redirect('/')
+        })
     }
 }

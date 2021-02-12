@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routers/indexRouter');
 const detailRouter = require('./routers/detailRouter');
@@ -10,6 +11,7 @@ app.set('views', path.resolve(__dirname, 'views'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended:true }))
+app.use(methodOverride('_method'));
 
 // app.use(express.static(path.resolve(__dirname, '../public')))
 app.use(express.static(path.join(__dirname, '../public')));

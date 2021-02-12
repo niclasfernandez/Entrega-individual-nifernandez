@@ -8,5 +8,15 @@ module.exports = {
                 notas: notas
             })
         })
+    },
+    update: function(req, res) {
+        db.Notas.update(
+            { titulo: req.body.title, 
+            texto: req.body.message },
+            { where: { id: req.params.id } }
+            )
+        .then(function(notas){
+            res.redirect('/')
+        })
     }
 }

@@ -32,7 +32,8 @@ module.exports = function(sequelize, dataTypes) {
     let config = {
         tableName: 'notas',
         timestamps: true,
-        underscored: true        
+        underscored: true,
+        paranoid: true       
     }
 
     const Movie = sequelize.define(alias, cols, config)
